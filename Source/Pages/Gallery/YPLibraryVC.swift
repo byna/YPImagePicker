@@ -429,6 +429,8 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                     default:
                         break
                     }
+
+                    asyncGroup.wait()
                 }
                 
                 asyncGroup.notify(queue: .main) {
