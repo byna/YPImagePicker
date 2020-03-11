@@ -97,6 +97,7 @@ class YPLibraryViewCell: UICollectionViewCell {
         durationLabel.isHidden = true
         dateLabel.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         dateLabel.font = .systemFont(ofSize: 10)
+        dateLabel.textColor = .white
         selectionOverlay.backgroundColor = .white
         selectionOverlay.alpha = 0
         backgroundColor = .ypSecondarySystemBackground
