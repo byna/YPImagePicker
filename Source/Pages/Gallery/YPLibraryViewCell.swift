@@ -58,6 +58,7 @@ class YPLibraryViewCell: UICollectionViewCell {
     var representedAssetIdentifier: String!
     let imageView = UIImageView()
     let durationLabel = UILabel()
+    let dateLabel = UILabel()
     let selectionOverlay = UIView()
     let multipleSelectionIndicator = YPMultipleSelectionIndicator()
     
@@ -68,6 +69,7 @@ class YPLibraryViewCell: UICollectionViewCell {
         sv(
             imageView,
             durationLabel,
+            dateLabel,
             selectionOverlay,
             multipleSelectionIndicator
         )
@@ -77,6 +79,10 @@ class YPLibraryViewCell: UICollectionViewCell {
         layout(
             durationLabel-5-|,
             5
+        )
+
+        layout(
+            |dateLabel
         )
         
         layout(
@@ -89,9 +95,15 @@ class YPLibraryViewCell: UICollectionViewCell {
         durationLabel.textColor = .white
         durationLabel.font = .systemFont(ofSize: 12)
         durationLabel.isHidden = true
+        dateLabel.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        dateLabel.font = .systemFont(ofSize: 10)
         selectionOverlay.backgroundColor = .white
         selectionOverlay.alpha = 0
         backgroundColor = .ypSecondarySystemBackground
+    }
+
+    override func prepareForReuse() {
+        dateLabel.text = nil
     }
 
     override var isSelected: Bool {

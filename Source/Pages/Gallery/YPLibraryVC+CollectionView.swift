@@ -135,6 +135,13 @@ extension YPLibraryVC: UICollectionViewDelegate {
         let isVideo = (asset.mediaType == .video)
         cell.durationLabel.isHidden = !isVideo
         cell.durationLabel.text = isVideo ? YPHelper.formattedStrigFrom(asset.duration) : ""
+
+        if let date = asset.creationDate {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            cell.dateLabel.text = formatter.string(from: date)
+        }
+
         cell.multipleSelectionIndicator.isHidden = !multipleSelectionEnabled
         cell.isSelected = currentlySelectedIndex == indexPath.row
         
